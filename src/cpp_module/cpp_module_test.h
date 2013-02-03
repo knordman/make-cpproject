@@ -1,2 +1,13 @@
+#include <cxxtest/TestSuite.h>
+#include <cpp_module/cpp_module.h>
 
-void c_module_function();
+class CppModule_test : public CxxTest::TestSuite
+{
+public:
+
+	void test_dummy(){
+		cpp_module_function();
+		TS_ASSERT(true);
+	}
+
+};

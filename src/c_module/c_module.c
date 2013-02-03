@@ -3,5 +3,5 @@
 
 void c_module_function()
 {
-	printf("Running a C function in \"module one\"\n");
+	printf("Running a function in a C module\n");
 }

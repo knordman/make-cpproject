@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-  c_module_function();
-  return EXIT_SUCCESS;
+	c_module_function();
+	return EXIT_SUCCESS;
 }
 
