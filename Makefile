@@ -17,11 +17,11 @@ LDFLAGS :=
 all : 				build/c_demo \
 				build/cpp_demo
 
-build/c_demo :	build/c_module/c_module.o \
+build/c_demo : 	build/c_module/c_module.o \
 				build/c_demo_prgm/main.o
 	$(LINKCC)
 
-build/cpp_demo :	build/c_module/c_module.o \
+build/cpp_demo : 	build/c_module/c_module.o \
 				build/cpp_module/cpp_module.o \
 				build/cpp_demo_prgm/main.o
 	$(LINKCXX)
@@ -30,11 +30,11 @@ build/cpp_demo :	build/c_module/c_module.o \
 #  Test specification
 # ------------------------------------------------------------------------------
 
-build/tests/cpp_module/cpp_module_unit :	build/cpp_module/cpp_module.o
-build/tests/cpp_module/cpp_module_unit : LINKWITH := build/cpp_module/cpp_module.o
-
 build/tests/c_module/c_module_unit : build/c_module/c_module.o
 build/tests/c_module/c_module_unit : LINKWITH := build/c_module/c_module.o
+
+build/tests/cpp_module/cpp_module_unit : build/cpp_module/cpp_module.o
+build/tests/cpp_module/cpp_module_unit : LINKWITH := build/cpp_module/cpp_module.o
 
 # ------------------------------------------------------------------------------
 #  General targets
@@ -52,9 +52,9 @@ clean :
 #  Implicit rules
 # -----------------------------------------------------------------------------
 
-CFLAGS += 			-Isrc
-LINKCC = 			gcc $^ $(LDFLAGS) -o $@
-LINKCXX = 			g++ $^ $(LDFLAGS) -o $@
+CFLAGS += 	-Isrc
+LINKCC = 	gcc $^ $(LDFLAGS) -o $@
+LINKCXX = 	g++ $^ $(LDFLAGS) -o $@
 
 build/%.o : src/%.cpp src/%.h Makefile
 	@mkdir -pv $(dir $@)
